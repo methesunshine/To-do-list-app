@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do List with Categories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>To-Do List </h1>
+      <div style="font-size:0.9rem;color:var(--muted)">
+
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="addTaskHeading">
+      <h2 id="addTaskHeading" style="font-size:1rem;margin:0 0 10px 0">Add / Edit Task</h2>
+
+      <form id="taskForm">
+        <input id="taskTitle" type="text" placeholder="Task title" required aria-label="Task title">
+        <select id="taskCategory" aria-label="Category">
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Urgent">Urgent</option>
+        </select>
+        <input id="taskDate" type="date" aria-label="Due date">
+        <button id="saveBtn" type="submit">Add Task</button>
+        <button id="cancelEdit" type="button" class="ghost" style="display:none">Cancel</button>
+      </form>
+
+      <div class="controls">
+        <div class="filters" role="tablist" aria-label="Filter tasks">
+          <button class="filter active" data-filter="All">All</button>
+          <button class="filter" data-filter="Work">Work</button>
+          <button class="filter" data-filter="Personal">Personal</button>
+          <button class="filter" data-filter="Urgent">Urgent</button>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+          <input id="search" type="text" placeholder="Search...">
+          <button id="clearAll" class="ghost">Clear all</button>
+        </div>
+      </div>
+
+      <div id="taskList" class="list" aria-live="polite" style="min-height:120px">
+        <!-- tasks go here -->
+      </div>
+    </section>
+
+    <footer style="margin-top:12px;color:var(--muted);font-size:0.9rem">
+      Tip: edit a task to update it. Data persists to localStorage under <code>todoTasks</code>.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
